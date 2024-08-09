@@ -1,0 +1,6 @@
+ALTER TABLE messages
+DROP COLUMN edited_at;
+
+ALTER TABLE messages
+ADD edited_at TIMESTAMP(0)
+WITH TIME zone NULL;

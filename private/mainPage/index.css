@@ -1,0 +1,439 @@
+body {
+    font-family: "DM Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.white-word {
+    color: rgb(250, 250, 250);
+}
+
+.bold-text {
+    font-weight: bold;
+}
+
+.text-center {
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.row {
+    --bs-gutter-x: 0;
+}
+
+#main-page-background {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(200, 215, 214);
+    /* background: linear-gradient(to top left, #f3f3f3 15%, rgba(255, 153, 150, 0) 60%, #80D0C7), linear-gradient(to top right, #92d4ff, rgba(255, 153, 150, 0), #76bfb8) #85bffa; */
+    overflow: hidden;
+}
+
+#main-page-area {
+    display: flex;
+    flex-direction: column;
+    height: 85%;
+    width: 90%;
+    min-width: 800px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#top-bar {
+    min-height: 50px;
+    max-height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2d2d2d;
+    /* border: .5px solid rgb(215, 215, 215); */
+    border-radius: 25px;
+    padding: 0 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.top-bar-word {
+    text-align: center;
+}
+
+.user-project-area {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+
+    background-color: rgb(255, 255, 255, 0.85);
+    border: .5px solid rgb(215, 215, 215);
+    border-radius: 30px;
+    padding: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.personal-area {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 15px;
+    min-width: 200px;
+    max-width: 200px;
+    height: 100%;
+    background-color: #b8d3d2;
+    border-radius: 15px;
+    padding: 15px;
+    overflow: hidden;
+    overflow-y: scroll
+}
+
+.personal-area::-webkit-scrollbar {
+    display: none;
+}
+
+
+.task-status {
+    display: flex;
+    justify-content: space-between;
+}
+
+.normal {
+    color: #91b6b5;
+    font-weight: 600;
+}
+
+.priority {
+    color: #c6af63;
+    font-weight: 600;
+}
+
+.overrun {
+    color: #b4454c;
+    font-weight: 600;
+}
+
+.personal-area img {
+    max-width: 100%;
+}
+
+.user-content .username {
+    text-align: center;
+    margin: 15px 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.user-content .image-cropper {
+    margin-left: 10px;
+    width: 150px;
+    height: 150px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.user-content-info div {
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.image-cropper>img {
+    min-height: 150px;
+    min-width: 150px;
+    object-fit: cover;
+    display: inline;
+    margin: auto;
+    height: auto;
+    width: 100%;
+    cursor: pointer;
+    margin-bottom: 15px;
+    /* height: 100%;
+    width: auto; */
+}
+
+.image-cropper>svg {
+    min-height: 150px;
+    min-width: 150px;
+    object-fit: cover;
+    display: inline;
+    margin: auto;
+    height: auto;
+    width: 100%;
+    cursor: pointer;
+    margin-bottom: 15px;
+    /* height: 100%;
+    width: auto; */
+}
+
+.project-area-box{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.project-area {
+    position: relative;
+    width: 100%;
+    padding: 15px;
+    column-count: 5;
+    column-gap: 15px;
+    overflow: auto;
+    padding: 0;
+}
+
+.project-area-box::-webkit-scrollbar {
+    display: none;
+}
+
+.project-area,
+.completed-project-area {
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.create-project {
+    break-inside: avoid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    font-weight: 600;
+    background-color: #c9cfcf;
+    border: .5px solid rgb(215, 215, 215);
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 15px;
+    width: 100%;
+    min-height: 350px;
+    max-height: 350px;
+    cursor: pointer;
+}
+
+.create-project:hover {
+    box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.15);
+}
+
+.center-image {
+    display: flex;
+    flex-direction: column;
+    min-height: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.center-image img {
+    max-width: 150px;
+    width: 100%;
+    /* max-height: 150px */
+}
+
+.project {
+    position: relative;
+    width: 100%;
+    break-inside: avoid;
+    border: .5px solid rgb(215, 215, 215);
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    overflow-y: auto;
+    z-index: 1;
+    background-color: #b9cde1;
+
+}
+
+.project::-webkit-scrollbar {
+    display: none;
+}
+
+
+.project:hover {
+    box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.15);
+
+    .edit-project-image {
+        display: block;
+    }
+}
+
+.project-name {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    flex-wrap: wrap;
+    font-weight: 600;
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.project img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.edit-project-image {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    opacity: 0.75;
+    z-index: 99;
+}
+
+.completed-project-area {
+    display: flex;
+    flex-direction: column;
+    /* border-left: 1px solid rgb(124, 124, 124); */
+    padding-left: 15px;
+    overflow: auto;
+    min-width: 200px;
+    max-width: 200px;
+    padding: 0 15px;
+}
+
+.completed-project-area::-webkit-scrollbar {
+    display: none;
+}
+
+.completed-project {
+    display: flex;
+    flex-direction: column;
+    min-height: 150px;
+    max-height: 150px;
+    margin-bottom: 10px;
+    background-color: #cad0d0;
+    color: #ffffff;
+    border: .5px solid rgb(215, 215, 215);
+    border-radius: 20px;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.completed-project-title {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    text-align: center;
+    flex-wrap: wrap;
+    font-weight: 600;
+    font-size: 17px;
+    color: #a1a4a4;
+    margin-bottom: 10px;
+}
+
+.completed-project:hover {
+    box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.15);
+}
+
+.user-content-button-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.logout {
+    height: 30px;
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    border-radius: 15px;
+}
+
+.logout:hover {
+    /* background-color: #8fd1cf; */
+    border: .5px solid #b8d3d2 !important;
+    color: #b8d3d2;
+}
+
+.main-page {
+    height: 30px;
+    width: 100px;
+
+    cursor: pointer;
+    border: none;
+    padding-left: 15px;
+}
+
+.main-page>img {
+    height: 100%;
+}
+
+.update-password,
+.update-info,
+#submit-profile-image,
+#submit-project-image,
+#update-username-button,
+#update-profile-button,
+#update-password-button,
+#first-time-config-button {
+    background-color: #91b6b5;
+    color: #ffffff;
+    /* background-color: #b8d3d2; */
+    border: none !important;
+    /* border: 1px solid #3a3a3a; */
+    height: 40px;
+    border-radius: 5px;
+    margin-top: 5px;
+    width: 100%;
+}
+
+.update-password:hover,
+.update-info:hover,
+#submit-profile-image:hover,
+#submit-project-image:hover,
+#update-username-button:hover,
+#update-profile-button:hover,
+#update-password-button:hover,
+.project-creation-next:hover,
+#first-time-config-button:hover {
+    background-color: #3a3a3a;
+}
+
+.project-creation-next {
+    background-color: #91b6b5;
+    color: #ffffff;
+    /* background-color: #b8d3d2; */
+    border: none !important;
+    /* border: 1px solid #3a3a3a; */
+    height: 40px;
+    border-radius: 5px;
+    margin-top: 5px;
+    width: 30%;
+}
+
+.project-creation-close {
+    border: none !important;
+    height: 40px;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.project-creation-body {
+    height: 330px;
+}
+
+@media screen and (max-width: 1650px) {
+    .project-area {
+        column-count: 4;
+    }
+}
+
+@media screen and (max-width: 1350px) {
+    .project-area {
+        column-count: 3;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .project-area {
+        column-count: 2;
+    }
+}

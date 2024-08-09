@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Main - and then...?</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Quicksand:wght@300..700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+    <div id="main-page-background">
+
+        <main id="main-page-area">
+
+            <nav id="top-bar" class="row white-word">
+                <div class="main-page" class="col-2" onclick="window.location.reload()">
+                    <img src="/assets/andthen_logo_6.png" alt="" class="logo">
+                </div>
+                <div id="notification" class="col-8"></div>
+                <div class="logout white-word" id="logout-button" class="col-2">Logout</div>
+            </nav>
+
+            <article class="user-project-area">
+
+                <section class="personal-area white-word">
+
+                    <div class="user-content">
+
+                        <!-- more display will be run in js -->
+
+                    </div>
+
+                    <div class="project-content">
+
+                        <!-- more display will be run in js -->
+
+                    </div>
+
+                    <div class="task-content">
+
+                        <!-- more display will be run in js -->
+
+                    </div>
+
+                    <div class="user-content-button-container">
+                        <button type="button" class="update-info" data-bs-toggle="modal"
+                            data-bs-target="#updateInfoModal">Edit User Info</button>
+
+                        <button type="button" class="update-password" data-bs-toggle="modal"
+                            data-bs-target="#updatePasswordModal">Edit Password</button>
+                    </div>
+
+                </section>
+
+                <section class="project-area-box">
+                    <!-- <div class="columns"> -->
+
+
+                        <div class="project-area">
+
+
+                        </div>
+
+                    <!-- </div> -->
+
+                    <!-- more display will be run in js -->
+
+                </section>
+
+                <section class="completed-project-area">
+                    <div class="completed-project-title">Completed Projects</div>
+                    <!-- more display will be run in js -->
+
+                </section>
+
+            </article>
+
+        </main>
+
+    </div>
+
+    <!-- upload profile image modal -->
+    <div class="modal fade" id="uploadProfileImageModal" data-bs-backdrop="static" data-bs-keyboard="false"
+        tabindex="-1" aria-labelledby="uploadProfileImageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4 shadow">
+                <div class="modal-header p-5 pb-4 border-bottom-0">
+                    <h1 class="fw-bold mb-0 fs-2" id="uploadProfileImageLabel">Update Profile Image</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body p-5 pt-0">
+                    <form enctype="multipart/form-data" method="post" id="upload-profile-image">
+
+                        <input class="form-control" type="file" name="profile-image" id="profile-image-upload">
+
+                        <button type="submit" id="submit-profile-image">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- upload project image modal -->
+    <div class="modal fade" id="uploadProjectImageModal" data-bs-backdrop="static" data-bs-keyboard="false"
+        tabindex="-1" aria-labelledby="uploadProjectImageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4 shadow">
+                <div class="modal-header p-5 pb-4 border-bottom-0">
+                    <h1 class="fw-bold mb-0 fs-2" id="uploadProjectImageLabel">Upload Cover Image</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body p-5 pt-0">
+                    <form enctype="multipart/form-data" method="put" id="upload-project-image">
+
+                        <input class="form-control" type="file" name="project-image" id="project-image-upload">
+
+                        <button type="submit" id="submit-project-image">Upload</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- first login config modal -->
+    <div class="modal fade" id="configModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="configModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4 shadow">
+                <div class="modal-header p-5 pb-4 border-bottom-0">
+                    <h1 class="fw-bold mb-0 fs-2" id="configModalLabel">Welcome New User</h1>
+                </div>
+
+                <div class="modal-body p-5 pt-0">
+                    <form id="first-time-config">
+
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control rounded-3" id="config-username"
+                                placeholder="username" required disabled>
+                            <label for="username">Username</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control rounded-3" id="config-first-name"
+                                placeholder="first-name" required>
+                            <label for="first-name">First Name</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control rounded-3" id="config-last-name"
+                                placeholder="last-name" required>
+                            <label for="last-name">Last Name</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="config-location">
+                                <option value="Amsterdam">Amsterdam</option>
+                                <option value="Athens">Athens</option>
+                                <option value="Barcelona">Barcelona</option>
+                                <option value="Beijing">Beijing</option>
+                                <option value="Berlin">Berlin</option>
+                                <option value="Buenos Aires">Buenos Aires</option>
+                                <option value="Bangkok">Bangkok</option>
+                                <option value="Chicago">Chicago</option>
+                                <option value="Cairo">Cairo</option>
+                                <option value="Copenhagen">Copenhagen</option>
+                                <option value="Delhi">Delhi</option>
+                                <option value="Dubai">Dubai</option>
+                                <option value="Dublin">Dublin</option>
+                                <option value="Frankfurt">Frankfurt</option>
+                                <option value="Geneva">Geneva</option>
+                                <option value="Helsinki">Helsinki</option>
+                                <option value="Hong Kong" selected>Hong Kong</option>
+                                <option value="Istanbul">Istanbul</option>
+                                <option value="Jakarta">Jakarta</option>
+                                <option value="Kuala Lumpur">Kuala Lumpur</option>
+                                <option value="Lima">Lima</option>
+                                <option value="Lisbon">Lisbon</option>
+                                <option value="London">London</option>
+                                <option value="Los Angeles">Los Angeles</option>
+                                <option value="Madrid">Madrid</option>
+                                <option value="Mexico City">Mexico City</option>
+                                <option value="Milan">Milan</option>
+                                <option value="Moscow">Moscow</option>
+                                <option value="Mumbai">Mumbai</option>
+                                <option value="Munich">Munich</option>
+                                <option value="New York City">New York City</option>
+                                <option value="Oslo">Oslo</option>
+                                <option value="Paris">Paris</option>
+                                <option value="Prague">Prague</option>
+                                <option value="Rio de Janeiro">Rio de Janeiro</option>
+                                <option value="Rome">Rome</option>
+                                <option value="Seoul">Seoul</option>
+                                <option value="Shanghai">Shanghai</option>
+                                <option value="Singapore">Singapore</option>
+                                <option value="Stockholm">Stockholm</option>
+                                <option value="Sydney">Sydney</option>
+                                <option value="Tokyo">Tokyo</option>
+                                <option value="Toronto">Toronto</option>
+                                <option value="Vancouver">Vancouver</option>
+                                <option value="Vienna">Vienna</option>
+                                <option value="Warsaw">Warsaw</option>
+                                <option value="Zurich">Zurich</option>
+                            </select>
+                            <label for="location">Location</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control rounded-3" id="config-organization"
+                                placeholder="organization" required>
+                            <label for="organization">Organization</label>
+                        </div>
+
+                        <button id="first-time-config-button" type="submit">Submit Information</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- update info button modal -->
+    <div class="modal fade" id="updateInfoModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="updateInfoLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4 shadow">
+                <div class="modal-header p-5 pb-4 border-bottom-0">
+                    <h1 class="fw-bold mb-0 fs-2" id="updateInfoLabel">Update User Info</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body p-5 pt-0">
+                    <form id="update-username">
+
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control rounded-3" id="new-username" placeholder="username">
+                            <label for="new-username">New Username</label>
+                        </div>
+
+                        <button id="update-username-button" type="submit">Update Username</button>
+
+                    </form>
+                    <br />
+
+                    <form id="edit-profile">
+
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control rounded-3" id="new-first-name"
+                                placeholder="first-name" required>
+                            <label for="new-first-name">Update First Name</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control rounded-3" id="new-last-name" placeholder="last-name"
+                                required>
+                            <label for="new-last-name">Update Last Name</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="new-location">
+                                <option value="Amsterdam">Amsterdam</option>
+                                <option value="Athens">Athens</option>
+                                <option value="Barcelona">Barcelona</option>
+                                <option value="Beijing">Beijing</option>
+                                <option value="Berlin">Berlin</option>
+                                <option value="Buenos Aires">Buenos Aires</option>
+                                <option value="Bangkok">Bangkok</option>
+                                <option value="Chicago">Chicago</option>
+                                <option value="Cairo">Cairo</option>
+                                <option value="Copenhagen">Copenhagen</option>
+                                <option value="Delhi">Delhi</option>
+                                <option value="Dubai">Dubai</option>
+                                <option value="Dublin">Dublin</option>
+                                <option value="Frankfurt">Frankfurt</option>
+                                <option value="Geneva">Geneva</option>
+                                <option value="Helsinki">Helsinki</option>
+                                <option value="Hong Kong">Hong Kong</option>
+                                <option value="Istanbul">Istanbul</option>
+                                <option value="Jakarta">Jakarta</option>
+                                <option value="Kuala Lumpur">Kuala Lumpur</option>
+                                <option value="Lima">Lima</option>
+                                <option value="Lisbon">Lisbon</option>
+                                <option value="London">London</option>
+                                <option value="Los Angeles">Los Angeles</option>
+                                <option value="Madrid">Madrid</option>
+                                <option value="Mexico City">Mexico City</option>
+                                <option value="Milan">Milan</option>
+                                <option value="Moscow">Moscow</option>
+                                <option value="Mumbai">Mumbai</option>
+                                <option value="Munich">Munich</option>
+                                <option value="New York City">New York City</option>
+                                <option value="Oslo">Oslo</option>
+                                <option value="Paris">Paris</option>
+                                <option value="Prague">Prague</option>
+                                <option value="Rio de Janeiro">Rio de Janeiro</option>
+                                <option value="Rome">Rome</option>
+                                <option value="Seoul">Seoul</option>
+                                <option value="Shanghai">Shanghai</option>
+                                <option value="Singapore">Singapore</option>
+                                <option value="Stockholm">Stockholm</option>
+                                <option value="Sydney">Sydney</option>
+                                <option value="Tokyo">Tokyo</option>
+                                <option value="Toronto">Toronto</option>
+                                <option value="Vancouver">Vancouver</option>
+                                <option value="Vienna">Vienna</option>
+                                <option value="Warsaw">Warsaw</option>
+                                <option value="Zurich">Zurich</option>
+                            </select>
+                            <label for="new-location">Update Location</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control rounded-3" id="new-organization"
+                                placeholder="organization" required>
+                            <label for="new-organization">Update Organization</label>
+                        </div>
+
+                        <button id="update-profile-button" type="submit">Update Profile</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- update password modal -->
+    <div class="modal fade" id="updatePasswordModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="updatePasswordLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4 shadow">
+                <div class="modal-header p-5 pb-4 border-bottom-0">
+                    <h1 class="fw-bold mb-0 fs-2" id="updatePasswordLabel">Update Password</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body p-5 pt-0">
+                    <form id="update-password">
+
+                        <small>**Must be as least 10 characters;</small>
+                        <br />
+                        <small>with 1 uppercase, lowercase letter, 1 number and 1 symbol.</small>
+
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control rounded-3 " id="password1"
+                                placeholder="password">
+                            <label for="password1">New Password</label>
+
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control rounded-3 " id="password2"
+                                placeholder="password">
+                            <label for="password2">Confirm New Password</label>
+
+                        </div>
+
+                        <input type="checkbox" id="toggle-password">
+                        <label for="toggle-password">Show Password</label>
+
+                        <button type="submit" id="update-password-button">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create Project Q1 modal -->
+    <div class="modal fade" id="projectCreationModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="projectCreationModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="projectCreationModalLabel">Create New Project</h1>
+                    <button type="button" class="btn-close project-creation-close" aria-label="Close"></button>
+                </div>
+                <div class="modal-body project-creation-body">
+                    <form id="projectCreationForm">
+                        <div id="projectCreationPromptContent">
+                            <label for="projectCreationResponse" class="form-label">What is the title of your
+                                Project?</label>
+
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Project Title</span>
+                                <input class="form-control" aria-describedby="inputGroup-sizing-default"
+                                    id="projectCreationResponse" type="text" name="response" value="New Project 1">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary project-creation-close">Close</button>
+                    <button type="submit" form="projectCreationForm" class="project-creation-next">Save and
+                        Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="module" src="index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../../utils/profileImage/src/profile-image.js"></script>
+
+</body>
+
+</html>
